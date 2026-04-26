@@ -1,0 +1,23 @@
+{
+  "name": "web-audit-proxy",
+  "version": "1.0.0",
+  "description": "后端代理服务器",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@alicloud/imageenhan20190930": "^3.0.0",
+    "@alicloud/imagerecog-2019-09-30": "^1.4.0",
+    "@alicloud/imagerecog20190930": "^2.0.10",
+    "@alicloud/openapi-client": "^0.4.15",
+    "@volcengine/openapi": "^1.36.1",
+    "axios": "^1.6.0",
+    "baidu-aip-sdk": "^4.16.16",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^17.4.2",
+    "express": "^4.18.2",
+    "form-data": "^4.0.5"
+  }
+}

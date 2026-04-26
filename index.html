@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抖音商城「上新」插卡Banner审核工具</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>上新tab插卡Banner自检工具</h1>
+            <p class="subtitle">快速上传图片，自动检测合规性（演示模式，需接入真实图像识别API才能准确审核）</p>
+        </header>
+
+        <div class="main-content">
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                    </div>
+                    <p class="upload-text">点击、拖拽或粘贴上传图片</p>
+                    <p class="upload-hint">支持 JPG、PNG 格式 • 支持Ctrl+V粘贴</p>
+                    <input type="file" id="fileInput" accept=".jpg,.jpeg,.png" hidden>
+                </div>
+
+                <div class="preview-section" id="previewSection" style="display: none;">
+                    <div class="image-container">
+                        <img id="previewImage" alt="预览图片">
+                        <div class="image-info" id="imageInfo"></div>
+                    </div>
+                </div>
+                <div class="preview-button-section" id="previewButtonSection" style="display: none;">
+                    <div class="button-group">
+                        <button class="btn-secondary" id="reuploadBtn">重新上传</button>
+                        <button class="btn-primary" id="auditBtn">开始审核</button>
+                    </div>
+                </div>
+                
+
+            </div>
+
+            <div class="result-section" id="resultSection" style="display: none;">
+                <div class="result-layout">
+                    <div class="result-image-side">
+                        <div class="image-container uploadable-image">
+                            <input type="file" id="resultFileInput" accept=".jpg,.jpeg,.png" hidden>
+                            <div class="upload-overlay">
+                                <span>📤 点击重新上传</span>
+                            </div>
+                            <img id="resultImage" alt="审核图片">
+                            <div class="image-info" id="resultImageInfo"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-content-side">
+                        <div class="result-content-container">
+                            <div class="conclusion" id="conclusion">
+                            </div>
+
+                            <div class="suggestions" id="suggestions" style="display: none;">
+                                <h3>整改清单</h3>
+                                <ul id="suggestionList">
+                                </ul>
+                            </div>
+
+                            <table class="audit-table" style="display: none;">
+                                <thead>
+                                    <tr>
+                                        <th>审核项</th>
+                                        <th>结果</th>
+                                        <th>说明</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="auditTableBody">
+                                </tbody>
+                            </table>
+
+                            <button class="btn-secondary" id="backBtn">返回</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TensorFlow.js 和 COCO-SSD 模型 -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.17.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.2"></script>
+    <script src="script.js"></script>
+</body>
+</html>
